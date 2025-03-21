@@ -1,0 +1,44 @@
+.disclaimer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #060506;
+}
+
+.disclaimer-contain {
+    width: 700px;
+    height: 600px;
+    border: 1px solid black;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.disclaimer-title {
+    font-size: 50px;
+
+}
+
+.disclaimer-text {
+    font-size: 20px;
+    ;
+}
+
+
+.disclaimer-button {
+    padding: 15px 60px;
+    border: 1px solid #535253;
+    font-size: 15px;
+    font-weight: 600;
+    transition: box-shadow 0.2s;
+    color: white;
+    text-decoration: none;
+}
+
+.disclaimer-button:hover {
+    box-shadow: 0.5px 0.5px 12px #737273;
+}

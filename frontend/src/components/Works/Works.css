@@ -1,6 +1,6 @@
 .works-editext {
     font-size: 25px;
-    color: #b8336aff;
+    color: rgb(136, 15, 67);
 }
 
 .works-para {
@@ -14,7 +14,7 @@
     padding-bottom: 30px;
 }
 .works h2{
-    color: rgb(171, 44, 97);
+    color: rgb(136, 15, 67);
 }
 .works svg {
     color: #3f3f3f !important;

@@ -5,10 +5,11 @@ import App from './App';
 import { ChakraProvider } from '@chakra-ui/react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import { Provider } from "./components/ui/provider"
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ChakraProvider>
+  <Provider>
     <App />
-  </ChakraProvider>
+  </Provider>
 );
-

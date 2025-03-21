@@ -1,0 +1,46 @@
+
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ChatSpace</title>
+    <link rel="stylesheet" type="text/css" href="./Chat.css">
+</head>
+
+<body>
+    <div class="chat-app">
+        <div class="chat-screen join-screen active"
+            style="border: 1px solid; padding: 10px; box-shadow: 5px 10px 18px #5d5c5c; border-radius: 10px;">
+            <div class="chat-form">
+                <h2>Start Chat</h2>
+                <div class="chat-form-input">
+                    <label>Username</label>
+                    <input type="text" id="chat-username">
+                </div>
+                <div class="chat-form-input">
+                    <button id="chat-join-user">Join</button>
+                </div>
+            </div>
+        </div>
+        <div class="chat-screen chatscreen" style="border-radius: 10px;">
+            <div class="chat-header">
+                <div class="chat-logo">Chatroom</div>
+                <button id="exit-chat">Exit</button>
+            </div>
+            <div class="chat-messages">
+            </div>
+            <div class="chat-typebox">
+                <input type="text" id="chat-message-input">
+                <button id="chat-send-message">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="./Chat.js"></script>
+</body>
+
+</html>

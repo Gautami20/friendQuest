@@ -11,6 +11,7 @@ function Register() {
         password:"",
         dob:"",
         age:"",
+        gender:"",
         phone:"",
         aadhar:"",
         address:""
@@ -24,18 +25,63 @@ function Register() {
         })
     }
 
-    const Register = () => {
-        const {name, email, password, dob , age, phone, aadhar, address}= user;
-        if(name && email &&  password && phone && aadhar){
-            axios.post("http://localhost:9002/Register", user)
-            .then(res=>console.log(res))
-            .catch(err=> console.log(err));
+    const Register = async () => {
+    const { name, email, password, dob, age, gender, phone, aadhar, address } = user;
+    if (name && email && password && phone && aadhar) {
+        try {
+            const response = await axios.post("http://localhost:9002/register", {
+                ...user,
+                image: image // Send base64 image
+            });
+
+            console.log(response.data);
+        } catch (error) {
+            console.error("Error during registration:", error);
         }
-        else {
-            alert("invalid input");
-        }
-        
+    } else {
+        alert("Invalid input");
     }
+};
+
+
+    const [image, setImage] = useState();
+
+    const converToBase64 = (e) => {
+        console.log(e);
+        var reader = new FileReader();
+        reader.readAsDataURL(e.target.files[0]);
+        reader.onload = () => {
+            console.log(reader.result);
+            setImage(reader.result);
+        }
+        reader.onerror = error => {
+            console.log("error: ", error);
+        }
+    }
+
+    const uploadImage = async() => {
+        try {
+            const response = await fetch('http://localhost:9002/upload-image', {
+                method: "POST",
+                crossDomain: true,
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    "Access-Control-Allow-Origin": "*",
+                },
+                body: JSON.stringify({
+                    base64: image,
+                }),
+            });
+
+            const data = await response.json();
+            console.log(data);
+        }
+        catch(e) {
+            console.error('Error uploading image:', e);
+        }
+
+    };
     
     return (
         <main className="register" >
@@ -45,7 +91,7 @@ function Register() {
 
                 <div className="register-text">
                     <h1>Create New Account</h1>
-                    <p>Already Registered? <Link to='/login' className='reg-text2'>Sign In</Link> Now!</p>
+                    <p>Already Registered? <Link to='/login'>Sign In</Link> Now!</p>
                 </div>
 
                 <div className="register-form-contain" >
@@ -64,7 +110,9 @@ function Register() {
 
                             <div className="form-group col mb-3" >
                                 <label className="form-label">PHOTO</label>
-                                <input className="form-control" type='file' name='photo'  />
+                                <input className="form-control" type='file' name='photo' accept="image/*"
+                                onChange={converToBase64}
+                                 />
                             </div>
                         </div>
 
@@ -76,11 +124,7 @@ function Register() {
 
                             <div className="form-group col mb-3" >
                                 <label className="form-label">GENDER</label>
-                                <select className="form-control" name='gender' value={user} onChange={handleChange}>
-                                    <option value="">Select Gender</option>
-                                    <option value="Female">Female</option>
-                                    <option value="Male">Male</option>
-                                </select>
+                                <input className="form-control" type="text" placeholder='Enter your Gender' name='gender'  value={user.gender} onChange={handleChange} />
                             </div>
 
                             <div className="form-group col mb-3" >
@@ -124,7 +168,10 @@ function Register() {
                 </div>
 
 
-                <Link to="/Login" className="register-button" onClick={Register}>Sign Up</Link>
+                <Link to="/Login" className="register-button" onClick={(e) => {
+                    Register();
+                    uploadImage();
+                }}>Sign Up</Link>
 
 
 

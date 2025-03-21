@@ -45,6 +45,11 @@
     font-weight: 500;
     text-decoration: none;
 }
-.reg-text2:hover{
+.register-text a:hover{
     text-decoration: underline;
+}
+.register-text a {
+    text-align: center;
+    color: #b8346a;
+    text-decoration: none;
 }

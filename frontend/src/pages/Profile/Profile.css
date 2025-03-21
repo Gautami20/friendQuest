@@ -1,0 +1,14 @@
+
+.profile-page {
+    display: flex;
+    min-height: 100vh;
+    padding-top: 5rem;
+    overflow: hidden;
+        background: linear-gradient(150deg,#fd8d76 20%, #ff4086 100%);
+}
+
+.profile-form input{
+background-color: #c5c4c4e8;
+    opacity: 0.7;
+    font-size: 16px;
+}

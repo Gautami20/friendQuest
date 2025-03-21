@@ -1,0 +1,56 @@
+.landing-mission-div {
+    height: 350px;
+    width: 100%;
+    background-color: rgb(109, 45, 73);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.landing-mission-div p {
+    font-style: italic;
+    color: #ffff;
+    text-align: center;
+    width: 1200px;
+    font-size: 25px;;
+}
+
+
+
+.landing-info-div {
+    height: 500px;
+    width: 100%;
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 50px 150px 0px 150px;
+}
+
+.landing-info-text {
+    color: rgb(136, 15, 67);
+    flex: 1;
+    /* border: 1px solid black; */
+}
+.landing-info-text h1 {
+    font-size: 38px;
+    font-weight: bold;
+}
+.landing-info-text p {
+    font-size: 18px;;
+}
+
+
+.landing-info-img {
+    flex: 1.2;
+    
+}
+.landing-info-img img {
+    width: 100%; 
+    height: 450px; 
+    max-width: 500px; 
+    object-fit: cover; 
+    max-width: 100%;
+    border-radius: 50px 0px 50px 0px;
+    border: 5px solid rgb(136, 15, 67);
+}
